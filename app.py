@@ -74,7 +74,7 @@ def index():
 
                 sample = pd.DataFrame([input_data])
                 prediction = clf.predict(sample)[0]
-                result = "🚨 Attaque détectée" if prediction == 1 else "✅ Connexion normale"
+                result = "🚨 Intrusion detected" if prediction == 1 else "✅ Legitimate connection"
             except Exception as e:
                 result = f"Erreur : {e}"
 
