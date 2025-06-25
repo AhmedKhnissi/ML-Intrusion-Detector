@@ -10,6 +10,11 @@
 </head>
 <body class="container mt-5">
     <h1 class="mb-4 text-primary">🔍 Détection d'intrusion réseau</h1>
+<form method="POST" class="row g-3">
+    <div class="mb-3">
+        <button name="action" value="normal" class="btn btn-success me-2">Pré-remplir avec données normales</button>
+        <button name="action" value="attaque" class="btn btn-danger">Pré-remplir avec données attaque</button>
+    </div>
 
     <form method="POST" class="row g-3">
         {% for col in columns %}
