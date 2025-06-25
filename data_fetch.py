@@ -1,10 +1,7 @@
-# data_fetch.py
 import pandas as pd
-
 def load_nsl_kdd():
     url_full = "https://raw.githubusercontent.com/Jehuty4949/NSL_KDD/master/KDDTrain+.csv"
-    
-    # Colonnes
+    #les noms des colonnes
     columns = [
         "duration", "protocol_type", "service", "flag", "src_bytes", "dst_bytes",
         "land", "wrong_fragment", "urgent", "hot", "num_failed_logins", "logged_in",
@@ -25,7 +22,7 @@ def load_nsl_kdd():
 
 def load_nsl_kdd_test():
     url_test = "https://raw.githubusercontent.com/Jehuty4949/NSL_KDD/master/KDDTest+.csv"
-    
+   #noms clmns 
     columns = [
         "duration", "protocol_type", "service", "flag", "src_bytes", "dst_bytes",
         "land", "wrong_fragment", "urgent", "hot", "num_failed_logins", "logged_in",
