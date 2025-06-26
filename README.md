@@ -63,7 +63,7 @@ python predict_demo.py
 
 ---
 
-🌐 Interface Web avec Flask
+##🌐 Interface Web avec Flask
 
 L'application web app.py permet de:
 
@@ -78,15 +78,17 @@ Lancer l'application :
 ```bash
 python app.py
 ```
-Aperçu de l'interface :
+# Aperçu de l'interface :
 
 ![Image](https://github.com/user-attachments/assets/6a197bd8-b43a-4dc0-845c-f37bf1818ca8)
 
-Exemple avec une connexion saine :
+# Exemple avec une connexion saine :
+
 ![Image](https://github.com/user-attachments/assets/5c6abc4c-ed18-4bc6-a736-00c965046fca)
 
 
-Exemple avec une connexion malveillante détectée :
+# Exemple avec une connexion malveillante détectée :
+
 ![Image](https://github.com/user-attachments/assets/201b7652-8e99-47b0-81cf-ede1771e15ad)
 
 
