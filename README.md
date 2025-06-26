@@ -20,3 +20,24 @@ templates / index.html # Interface HTML Bootstrap pour l'application Flask
 rf_model.joblib # Modèle sauvegardé (généré après exécution de model_train.py)
 ```
 
+
+---
+
+## 📦 Jeu de données
+
+Utilisation du jeu de données **NSL-KDD**, disponible sur [GitHub – Jehuty4949](https://github.com/Jehuty4949/NSL_KDD).
+
+- `KDDTrain+.csv` : dataset d’entraînement
+- `KDDTest+.csv` : dataset de test
+
+---
+
+## ⚙️ Entraînement du modèle
+
+L’entraînement est réalisé avec un **Random Forest Classifier** après un prétraitement (encodage one-hot, mapping des labels, séparation X/y).
+
+**Exécution :**
+
+```bash
+python model_train.py
+
