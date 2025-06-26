@@ -63,7 +63,7 @@ python predict_demo.py
 
 ---
 
-##🌐 Interface Web avec Flask
+## 🌐 Interface Web avec Flask
 
 L'application web app.py permet de:
 
