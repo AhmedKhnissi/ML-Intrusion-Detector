@@ -40,4 +40,7 @@ L’entraînement est réalisé avec un **Random Forest Classifier** après un p
 
 ```bash
 python model_train.py
+```
+![Image](https://github.com/user-attachments/assets/1355e342-58eb-45c0-820a-4d3171c73feb)
+
 
