@@ -1,5 +1,3 @@
-# app.py
-
 from flask import Flask, request, render_template
 from data_fetch import load_nsl_kdd_test
 import pandas as pd
@@ -8,10 +6,9 @@ import joblib
 app = Flask(__name__)
 clf = joblib.load("rf_model.joblib")
 
-# Charger les colonnes que le modèle attend
 feature_columns = clf.feature_names_in_
 
-# ✅ Valeurs par défaut réalistes d'une connexion (potentiellement malveillante)
+#des valeurs par defaut réalistes d'une connexion potentiellement malveillante (a partir d'internet)
 default_values = {
     'duration': 5,
     'src_bytes': 232,
@@ -25,27 +22,28 @@ default_values = {
     'flag_SF': 1
 }
 
-# Charge une ligne qui provoque une prédiction d’attaque
+#charge une ligne qui provoque une prediction dattaque
 def get_attack_like_sample():
     df_test = load_nsl_kdd_test()
     df_test["label"] = df_test["label"].apply(lambda x: 0 if x == "normal" else 1)
     df_test = pd.get_dummies(df_test, columns=["protocol_type", "service", "flag"])
 
-    # Préparation des colonnes (alignement)
+#Preparation des colonnes 
     X_all = df_test.drop(columns=["label", "difficulty"])
     X_model = pd.DataFrame(columns=clf.feature_names_in_)
     X_model = pd.concat([X_model, X_all], ignore_index=True).fillna(0)
 
-    # 🔁 Conversion explicite des booléens/strings en numériques
+
+#Conversion explicite des booleen/string en numerique
     X_model = X_model.replace({True: 1, False: 0, 'True': 1, 'False': 0})
     X_model = X_model.apply(pd.to_numeric, errors='coerce').fillna(0)
 
-    # Trouve une ligne prédite comme attaque
+
     for i in range(len(X_model)):
         sample = X_model.iloc[i:i+1]
         if clf.predict(sample)[0] == 1:
             return sample.iloc[0].to_dict()
-    return default_values  # fallback si aucune attaque trouvée
+    return default_values  # fallback si aucune attaque trouvé
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -61,7 +59,6 @@ def index():
             input_data = get_attack_like_sample()
         else:
             try:
-                # 🧼 Nettoyage des données envoyées depuis le formulaire
                 input_data = {}
                 for col in feature_columns:
                     val = request.form.get(col, 0)
