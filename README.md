@@ -11,11 +11,12 @@ L'application propose :
 ---
 
 ## 📁 Structure de base du projet
-
+```jsx
 data_fetch.py # Téléchargement et chargement des datasets NSL-KDD (train & test)
 model_train.py # Préparation, entraînement, évaluation et sauvegarde du modèle Random Forest
 predict_demo.py # Démonstration de prédiction sur une ligne du dataset de test
 app.py # Application Flask pour prédire visuellement une connexion réseau
 templates / index.html # Interface HTML Bootstrap pour l'application Flask
 rf_model.joblib # Modèle sauvegardé (généré après exécution de model_train.py)
+```
 
